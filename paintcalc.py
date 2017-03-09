@@ -6,34 +6,37 @@ import sys
 
 # Challenge 1: Make sure input is an integer
 # Challenge 100: Redo as a while loop
-while valid != 0
+valid = int(1)
+while valid != int(0):
+    numvalid = int(1)
+    shapevalid = int(1)
     shape = raw_input("Is the room rectangular or circular? ")
     if shape == "rectangular":
-        numvalid = 0
+        numvalid = int(0)
         try:
             width = int(input("What is the width? "))
         except:
-	       print("Value must be an integer.")
-           numvalid= 1
+            numvalid= int(1)
+            print("Value must be an integer.")
         try:
     	    length = int(input("What is the length? "))
         except:
             print("Value must be an integer.")
-            numvalid= 1
+            numvalid= int(1)
     elif shape == "circular":
-        numvalid = 0
+        numvalid = int(0)
         try:
             radius = int(input("what is the radius of the room? "))
         except:
             print("value must be an integer.")
-            numvalid=1
+            numvalid= int(1)
     elif shape != "rectangular":
         if shape != "circular":
             print "shape not valid"
-            shapevalid = 1
+            shapevalid = int(1)
         else:
-            shapevalid = 0
-    valid= int(numvalid + shapevalid)
+            shapevalid = int(0)
+    valid= (int(numvalid) + int(shapevalid))
 def rectangle(length, width):
     area_of_ceiling = float(length * width)
     # Constraint 1: USE A CONSTANT to hold the Conversion Rate
@@ -53,4 +56,3 @@ elif shape == "circular":
     if valid == 0:
         circle(radius)
     print("You will need to purchase {} gallons of paint to cover {} square feet.".format(paint_rounded_circle, area_of_circle))
-
