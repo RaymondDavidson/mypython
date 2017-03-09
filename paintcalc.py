@@ -1,29 +1,33 @@
 import math
 import sys
-shape = raw_input("Is the room rectangular or circular? ")
+
 # Challenge 1: Make sure input is an integer
 
 
 # Challenge 1: Make sure input is an integer
 # Challenge 100: Redo as a while loop
-if shape == "rectangular":
-    try:
-        width = int(input("What is the width? "))
-    except:
+while valid != 0
+    shape = raw_input("Is the room rectangular or circular? ")
+    if shape == "rectangular":
+        numvalid = 0
+        try:
+            width = int(input("What is the width? "))
+        except:
 	       print("Value must be an integer.")
-	       sys.exit(1)
-    try:
-    	length = int(input("What is the length? "))
-    except:
-        print("Value must be an integer.")
-        sys.exit(1)
-elif shape == "circular":
+           numvalid= 1
+        try:
+    	    length = int(input("What is the length? "))
+        except:
+            print("Value must be an integer.")
+            numvalid= 1
+    elif shape == "circular":
         try:
             radius = int(input("what is the radius of the room? "))
         except:
             print("value must be an integer.")
-            sys.exit(1)
-
+            numvalid=1
+            numvalid = 0
+    valid=numvalid
 def rectangle(length, width):
     area_of_ceiling = float(length * width)
     # Constraint 1: USE A CONSTANT to hold the Conversion Rate
