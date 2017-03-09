@@ -21,13 +21,19 @@ while valid != 0
             print("Value must be an integer.")
             numvalid= 1
     elif shape == "circular":
+        numvalid = 0
         try:
             radius = int(input("what is the radius of the room? "))
         except:
             print("value must be an integer.")
             numvalid=1
-            numvalid = 0
-    valid=numvalid
+    elif shape != "rectangular":
+        if shape != "circular":
+            print "shape not valid"
+            shapevalid = 1
+        else:
+            shapevalid = 0
+    valid= int(numvalid + shapevalid)
 def rectangle(length, width):
     area_of_ceiling = float(length * width)
     # Constraint 1: USE A CONSTANT to hold the Conversion Rate
@@ -38,13 +44,13 @@ def circle(radius):
     area_of_circle = float(3.14159*radius*radius)
     PAINT_NEEDED_CIRCLE = float(area_of_circle/350)
     paint_rounded_circle = int(math.ceil(PAINT_NEEDED_CIRCLE))
-
+# rectangle print
 if shape == "rectangular":
-    rectangle(length, width)
-    print("You will need to purchase {} gallons of paint to cover {} square feet.".format(paint_rounded_rectangle, area_of_ceiling))
+    if valid == 0:
+        rectangle(length, width)
+        print("You will need to purchase {} gallons of paint to cover {} square feet.".format(paint_rounded_rectangle, area_of_ceiling))
 elif shape == "circular":
-    circle(radius)
+    if valid == 0:
+        circle(radius)
     print("You will need to purchase {} gallons of paint to cover {} square feet.".format(paint_rounded_circle, area_of_circle))
-else:
-    print("shape not valid")
-    sys.exit(1)
+
